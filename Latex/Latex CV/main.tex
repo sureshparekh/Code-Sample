@@ -1,0 +1,462 @@
+%---- Required Packages and Functions ----
+
+\documentclass[a4paper,11pt]{article}
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{marvosym}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{cfr-lm}
+\usepackage[T1]{fontenc}
+\setlength{\multicolsep}{0pt} 
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+% \fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=1cm, top=1.3cm, right=1cm, bottom=1.5cm}
+% Adjust margins
+%\addtolength{\oddsidemargin}{-0.5in}
+%\addtolength{\evensidemargin}{-0.5in}
+%\addtolength{\textwidth}{1in}
+\usepackage[most]{tcolorbox}
+\tcbset{
+	frame code={}
+	center title,
+	left=0pt,
+	right=0pt,
+	top=0pt,
+	bottom=0pt,
+	colback=gray!20,
+	colframe=white,
+	width=\dimexpr\textwidth\relax,
+	enlarge left by=-2mm,
+	boxsep=4pt,
+	arc=0pt,outer arc=0pt,
+}
+
+\urlstyle{same}
+
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-0.5em}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item{
+    % \textbf
+    {#1}{:\hspace{0.5mm}#2 \vspace{-0.5mm}}
+  }
+}
+
+\newcommand{\resumePOR}[3]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        % \textbf
+        {#1},\hspace{0.3mm}#2 & \textit{\small{#3}} 
+    \end{tabular*}
+    \vspace{-2mm}
+}
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}
+    {0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        % \textbf
+        {#1} & {\footnotesize{#4}} \\
+        \textit{\footnotesize{#3}} &  \footnotesize{#2}\\
+    \end{tabular*}
+    \vspace{0.5mm}
+}
+
+\newcommand{\resumeProject}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        {#1} & {\footnotesize{#3}} \\
+        % \vspace{-0.5mm}
+        \footnotesize{\textit{#2}} & \footnotesize{#4}
+    \end{tabular*}
+    \vspace{0.5mm}
+}
+
+\newcommand{\resumePublication}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        {#1} & {\footnotesize{#3}} \\
+        % \vspace{-0.5mm}
+        \footnotesize{\textit{#2}} & \footnotesize{#4}
+    \end{tabular*}
+    \vspace{0.5mm}
+}
+
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+% \renewcommand{\labelitemii}{$\circ$}
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{description}[leftmargin=*,labelsep=1.2mm, itemsep=0pt]}
+\newcommand{\resumeHeadingSkillStart}{\begin{itemize}[leftmargin=*,itemsep=1.5mm, rightmargin=2ex, label={}]}
+\newcommand{\resumeHeadingAchivStart}{\begin{itemize}[leftmargin=*,itemsep=1.5mm, rightmargin=2ex]}
+\newcommand{\resumeItemListStart}{\begin{justify}\begin{itemize}[leftmargin=3ex, rightmargin=2ex, noitemsep,labelsep=1.2mm,itemsep=0mm, label={--}]\small}
+\newcommand{\resumePubListStart}{\begin{justify}\begin{description}[leftmargin=3ex, rightmargin=2ex, noitemsep,labelsep=1.2mm,itemsep=0mm]\small}
+
+
+\newcommand{\resumeSubHeadingListEnd}{\end{description}\vspace{2mm}}
+\newcommand{\resumeHeadingSkillEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\resumeHeadingAchivEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\end{justify}\vspace{-2mm}}
+\newcommand{\resumePubListEnd}{\end{description}\end{justify}\vspace{-2mm}}
+
+\newcommand{\cvsection}[1]{%
+\vspace{2mm}
+\begin{tcolorbox}
+    \textbf{\large #1}
+\end{tcolorbox}
+    \vspace{-4mm}
+}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+%---- End of Packages and Functions ------
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%
+%%%%%% DEFINE ELEMENTS HERE %%%%%%%
+\newcommand{\name}{Suresh Parekh} % Your Name
+% \newcommand{\course}{B.Tech - XXXXXXX and YYYYYYY Engineering} % Your Course
+% \newcommand{\roll}{XXXXXXXXX} % Your Roll No.
+\newcommand{\phone}{9712998412} % Your Phone Number
+\newcommand{\emaila}{thesureshparekh@gmail.com} %Email 1
+% \newcommand{\emailb}{somethingelse@example.com} %Email 2
+\newcommand{\github}{sureshparekh} %Github
+\newcommand{\website}{https://sureshparekh.github.io/} %Website
+% \newcommand{\linkedin}{LINKEDINUSERID} %linkedin
+
+
+
+
+\begin{document}
+\fontfamily{lmr}\selectfont
+%----------HEADING-----------------
+\parbox{2.35cm}{%
+
+% \includegraphics[width=2cm,clip]{iitg_logo.jpg}
+
+}\parbox{\dimexpr\linewidth\relax}{
+\begin{tabularx}{\linewidth}{L r}
+  
+  % & \href{mailto:\emaila}{\emaila} \\
+  % \scshape\raggedright\huge{\name} & \href{https://github.com/\github}{Github} $|$ \href{\website}{Website}\\   
+
+    & \textcolor{blue}{\href{https://github.com/\github}{GitHub}} $|$ \textcolor{blue}{\href{\website}{Website}\\ \vspace{-0.6cm}}
+  \scshape\raggedright\Huge{\name} & \href{mailto:\emaila}{\emaila} 
+\vspace{0.3em}
+
+\end{tabularx}
+}
+\color{black}\titlerule \vspace{1pt}
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Savitribai Phule Pune University}{Pune, India}
+      {Master of Science in Physics}{Aug. 2021 -- May. 2023}
+    \resumeSubheading
+      {St. Xavier's College}{Ahmedabad, India}
+      {Bachleor of Science in Physics}{May. 2018 -- April. 2021}
+  \resumeSubHeadingListEnd\vspace{-3mm}
+
+
+%-----------PROJECTS-----------------
+\section{Research Experience}
+\resumeSubHeadingListStart
+    
+    \resumeProject
+      {Studying the central region of Galaxy Clusters and their Morphological Study} %Project Name \
+      {Advisor: Dr. Viral Parekh} %Project Name, Location Name
+      {Aug. 2023 - Present} %Event Dates
+      {\href{Link to project}{NRAO, USA}} %Website
+      % \resumeItemListStart
+        % \item {Analyzed Radio and X-ray data of Galaxy clusters to study the radio halos/relics and extended emissions from GC's central regions from the MGCLS clusters using MaDCoWS Catalogs, conducting a comprehensive analysis}
+        % \item {Project Work Done 2}
+    % \resumeItemListEnd
+
+    \resumeProject
+      {Cosmological Models in Modified Theory of Gravity with Observational Constraints} %Project Name
+      {Advisors: Dr. Saibal Ray, Dr. Anil K. Yadav, Dr. Lokesh K. Sharma} %Project Name, Location Name
+      {Jun. 2023 - Present} %Event Dates
+      {\href{Link to github}{Mathura, India}} %Website
+    %   \resumeItemListStart
+    %     \item {Project Work Done 1}
+    %     \item {Project Work Done 2}
+    % \resumeItemListEnd
+    
+    \resumeProject
+      {Extended X-Ray Jets in Radio-loud Quasars: A Morphological Study}
+      {Advisor: Dr. Vaidehi Paliya}{Aug. 2022 - May. 2023}{\href{Links to Reports}{IUCAA, India}}
+    %   \resumeItemListStart
+    % \item {Work Done 1}
+    %     \item {Work Done 2}
+    % \resumeItemListEnd
+
+    \resumeProject
+      {Detecting and studying Vela Pulsar timing using Ooty Radio Telescope}
+      {Advisor: Prof. Avinash Deshpande}{Sep. 2022 - Dec. 2022}{\href{Links to Reports}{IUCAA, India}}
+    %   \resumeItemListStart
+    % \item {Work Done 1}
+    %     \item {Work Done 2}
+    % \resumeItemListEnd
+
+    \resumeProject
+      {Methods of Increasing Efficiency of Solar Cells}
+      {Advisor: Dr. Sanjeev Gupta}{May. 2020 - April. 2021}{\href{Links to Reports}{St. Xavier's College, Ahmedabad}}
+    %   \resumeItemListStart
+    % \item {Work Done 1}
+    %     \item {Work Done 2}
+    % \resumeItemListEnd
+      
+  \resumeSubHeadingListEnd
+\vspace{-5.5mm}
+
+%-----------PUBLICATIONS-----------------
+\section{Publications}
+\resumePubListStart
+\normalsize
+    \resumePublication
+      {A power law solution for FLRW Universe with observational Constraints} %Publication
+      {L. Sharma, \textcolor{red}{S. Parekh}, S. Maurya, K. Singh, S. Ray, et al.} %Authors
+      {\href{https://arxiv.org/abs/2310.18665}{\textcolor{blue}{[arXiv:2310.18665]}}} %Publication House
+      {IJGMMP (under review)} %Publication Status
+
+    \resumePublication
+      {Modifed power law cosmology: theoretical scenarios and observational constraints} %Publication
+      {L. Sharma, \textcolor{red}{S. Parekh}, S. Ray, A. Yadav et al.} %Authors
+      {\href{https://doi.org/10.20944/preprints202402.0564.v1}{\textcolor{blue}{[Preprints.org]}}} %Publication House
+      {MDPI (under review)} %Publication Status
+
+    \resumePublication
+      {Constraining anisotropic universe under $f(R,T)$ theory of gravity} %Publication
+      {L. Sharma, \textcolor{red}{S. Parekh}, S. Ray, A. Yadav et al.} %Authors
+      {\href{https://sureshparekh.github.io/Preprint/Bianchi_5.pdf}{\textcolor{blue}{[Preprint]}}} %Publication House
+      {JHEAP (under review)} %Publication Status
+
+    \resumePublication
+      {A power law solution for Bianchi-I Universe with observational constraints} %Publication
+      {L. Sharma, \textcolor{red}{S. Parekh}, S. Ray, A. Yadav et al.} %Authors
+      {\href{https://sureshparekh.github.io/Preprint/Bianchi1.pdf}{\textcolor{blue}{[Preprint]}}} %Publication House
+      {IJGMMP (under review)} %Publication Status
+
+    \resumePublication
+      {Generation of Bulk Viscous Cosmological Model in $f(R,T)$ Gravity\\ \& observational constraints} %Publication
+      {L. Sharma, \textcolor{red}{S. Parekh}, S. Ray, A. Yadav et al.} %Authors
+      {Under Review} %Publication House
+      {PRD} %Publication Status
+
+    \resumePublication
+      {Cosmological aspects of a hyperbolic solution in  $f(R,T)$ theory of gravity\\ \& observational constraints} %Publication
+      {L. Sharma, \textcolor{red}{S. Parekh}, S. Ray, A. Yadav et al.} %Authors
+      {In Prep} %Publication House
+      {PRD} %Publication Status
+
+    \resumePublication
+      {Overcoming the hurdles in imparting Astronomy education in Schools} %Publication
+      {Vaibhav Trivedi, \textcolor{red}{S. Parekh}} %Authors
+      {\href{https://owncloud.gwdg.de/index.php/s/RQjMBL5XIonrxSl#page=90}{\textcolor{blue}{Publication}}} %Publication House
+      {IAU Proceedings} %Publication Status
+
+    \resumePublication
+      {Innovative computational experiment on projectile motion} %Publication
+      {\textcolor{red}{S. Parekh}} %Authors
+      {\href{https://books.google.co.in/books?id=zqE5EAAAQBAJ&pg=PA110&lpg=PA110&dq=projectile+motion+suresh+parekh&source=bl&ots=FfF1i9kOuD&sig=ACfU3U3I2vNn_bxFekrH82mw3_tiOPgdhA&hl=en&sa=X&ved=2ahUKEwjvsvq3mISBAxWEZ2wGHbTLDcwQ6AF6BAgMEAM#v=onepage&q&f=false}{\textcolor{blue}{Publication}}} %Publication House
+      {IAPT Publication} %Publication Status
+
+  \resumePubListEnd
+\vspace{-1em}
+
+%-----------Teaching Experience-----------------
+
+\section{Teaching Experience}
+\resumeSubHeadingListStart
+    
+    \resumeProject
+      {Trainer for The International Astronomical Search Collaboration (IASC)} %Project Name \
+      {St. Xavier's College, Ahmedabad} %Project Name, Location Name
+      {May. 2022 - Dec. 2022} %Event Dates
+      {\href{Link to project}{Ahmedabad, India}} %Website
+    \resumeProject
+      {Tutor: Introduction to Python and Simulations} %Project Name \
+      {Bajaj Science Education Center} %Project Name, Location Name
+      {May. 2021 - June. 2021} %Event Dates
+      {\href{Link to project}{Wardha, India}} %Website
+\vspace{-6mm}
+
+%-----------Workshops / Conferences / Talks-----------------
+
+\section{Workshops / Conferences / Talks}
+\resumeSubHeadingListStart
+    
+    \resumeProject
+      {10{$^{th}$} International Conference on Gravitation and Cosmology (ICGC 2023)} %Project Name \
+      {Invited to present my paper on Power Law solution for FLRW Universe with Observational Constraints} %Project Name, Location Name
+      {Dec. 2023} %Event Dates
+      {IIT Guwahati, India} %Website
+
+    \resumeProject
+      {4th Shaw-IAU Workshop on Astronomy for Education} %Project Name \
+      {Invited to present my paper on Overcoming the hurdles in imparting Astronomy Education in Schools} %Project Name, Location Name
+      {Nov. 2022} %Event Dates
+      {Virtual} %Website
+
+    \resumeProject
+      {Talk and Debate on opportunities for students and Indian Space missions} %Project Name \
+      {News Channels: Sandesh News, ETV, TV9, VTV, ABP Asmita} %Project Name, Location Name
+      {Nov. 2022} %Event Dates
+      {Virtual} %Website
+
+    \resumeProject
+      {Meerkat Pulsar Timing Student Workshop by SARAO, South Africa} %Project Name \
+      {Hands-on workshop with measuring the relativistic time delay} %Project Name, Location Name
+      {Sep. 2021} %Event Dates
+      {SARAO, South Africa} %Website
+
+    \resumeProject
+      {2021 African Radio Interferometry Winter School} %Project Name \
+      {Flagging, calibration, and imaging of continuum and spectral line data and time-domain pulsar science} %Project Name, Location Name
+      {Jun. 2021} %Event Dates
+      {SARAO, South Africa} %Website
+
+    \resumeProject
+      {Introductory Summer School in Astronomy and Astrophysics (ISSAA)} %Project Name \
+      {Introduction to Astronomy, Hands-on Pulsar timing array, General Relativity and Cosmology} %Project Name, Location Name
+      {May 2021} %Event Dates
+      {IUCAA, Pune} %Website
+
+    \resumeProject
+      {$34^{th}$ IAPT National Convention} %Project Name \
+      {Invited to present my innovative work on \href{https://sureshparekh.github.io/projectilemotion/index.html}{\textcolor{blue}{Understanding Projectile Motion in an Interactive Manner}}} %Project Name, Location Name
+      {Oct. 2019} %Event Dates
+      {IIIT Allahabad, India} %Website
+
+
+  \resumeSubHeadingListEnd
+\vspace{-5.5mm}
+
+%-----------Achievements-----------------
+
+\section{Achievements}
+ % \small
+ 
+  {Earned a Gold Medal for excellence in research for Bachelor's thesis at St. Xavier's College, Ahmedabad (2021)} \\% Category
+  
+    \vspace{0.5em}
+    
+  {Honoured as Citizen Scientist by NASA for the discovery of the 2020 HS24 asteroid in the \href{http://iasc.cosmosearch.org/}{\textcolor{blue}{IASC campaign}} (2020)} \\
+
+  \vspace{0.5em}
+    
+  {Received a Certificate of Excellence in National Anveshika Experimental Skill Test  \href{https://nani.hcverma.in}{\textcolor{blue}{(NAEST)} (2020)} \\
+
+  \vspace{0.5em}
+    
+  {Earned Gold Honour in the International Astronomy and Astrophysics Competition  \href{https://iaac.space/en}{\textcolor{blue}{(IAAC) 2020}}} \\
+
+  \vspace{0.5em}
+    
+  {Winner of National Competition for Innovation in Computational Physics \href{https://iapt.org.in/88-activities/2427-ncicp.html}{\textcolor{blue}{(NCICP) 2019}}} \\
+
+  \vspace{0.5em}
+    
+  {Winner of State Level Competition for Innovation in Computational Physics held in Gujarat sector (2019)}
+
+ \vspace{-0.2em}
+
+
+ %-----------Leadership-----------------
+
+\section{Leadership and Community Outreach}
+ % \small
+ 
+  {Founder and Team Lead of Astronomica: Astronomy Club of St. Xavier's College, Ahmedabad (2019 - 21)} \\% Category
+  
+    \vspace{0.5em}
+    
+  {Co-ordinated and organized astronomy outreach events in local schools/colleges (2020)} \\
+
+  \vspace{0.5em}
+    
+  {Co-founder and Editor of Infinoscope Magazine, an initiative to popularize STEM (2019 - 22)} \\
+
+  \vspace{0.5em}
+    
+  {Member and Educator at Universe Science Forum (USF), conducting local school outreach (2019 - 21)} \\
+
+  \vspace{0.5em}
+    
+  {Writer at Volume Stories for Space and Beyond carousel Blog (2021 - 22)} \\
+
+    \vspace{0.5em}
+    
+  {Volunteer at the National Science Day event organized by the Institute of Plasma Research (2020)} \\
+
+ \vspace{-0.2em}
+
+
+%-----------SKILLS-----------------
+
+\section{Skills}
+ \resumeHeadingSkillStart
+ % \footnotesize
+  \resumeSubItem{Programming} % Category
+    { Python | Fortran | MATLAB | Mathematica | R}
+    
+ \resumeSubItem{Modules} % Category
+    { CIAO | CASA | Scipy | Astropy | DS9} % Skills
+%  \resumeSubItem{Tools/Frameworks} % Category
+%     {Keras, Tensorflow, Pytorch*, ROS, OpenCV}
+ \resumeSubItem{Markup}
+ { {\LaTeX} | HTML | CSS} 
+  \resumeSubItem{Designing}
+ { Canva | Adobe Premiere Pro} 
+
+  \resumeSubItem{Language Proficiency}
+ { Gujarati | Hindi | English} 
+  \resumeSubItem{Designing}
+ {Canva | Adobe Premiere Pro} 
+
+ \resumeHeadingSkillEnd
+
+%-----------Courses-----------------
+
+% \section{Key courses taken}
+% \resumeHeadingSkillStart
+%  \resumeSubItem{Mathematics} % Category
+%     {Linear Algebra, Basic Calculus, Discrete Maths, Probability \& Random Processes }
+%  \resumeSubItem{Product Management} % Category
+%     {Product Matters 3.0} % Skills
+% \resumeSubItem{Course Category XYZ}
+%  {Course Name 1, Course Name 2, Course Name 3, Course Name 4}
+%  \resumeHeadingSkillEnd
+
+%-------------------------------------------
+\end{document}
